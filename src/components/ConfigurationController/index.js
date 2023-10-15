@@ -37,17 +37,29 @@ class ConfigurationController extends Component {
           <h1>Layout</h1>
           <div className="div">
             <div>
-              <input id="input1" type="checkbox" onChange={this.comp1} />
+              <input
+                id="input1"
+                type="checkbox"
+                onChange={this.onToggleShowContent}
+              />
               <label htmlFor="input1">content</label>
             </div>
 
             <div>
-              <input id="input2" type="checkbox" onChange={this.comp2} />
+              <input
+                id="input2"
+                type="checkbox"
+                onChange={this.onToggleShowLeftNavbar}
+              />
               <label htmlFor="input2">Left Navbar</label>
             </div>
 
             <div>
-              <input id="input3" type="checkbox" onChange={this.comp3} />
+              <input
+                id="input3"
+                type="checkbox"
+                onChange={this.onToggleShowRightNavbar}
+              />
               <label htmlFor="input3">Right Navbar</label>
             </div>
           </div>
