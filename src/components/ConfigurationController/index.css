@@ -1,0 +1,14 @@
+/* Write your CSS here */
+.controller {
+  background-color: #475569;
+
+  padding: 20px;
+  background-size: cover;
+  color: #fff;
+}
+.div {
+  display: flex;
+  justify-content: flex-start;
+
+  flex-direction: column;
+}
