@@ -6,21 +6,21 @@ import './index.css'
 class ConfigurationController extends Component {
   state = {showContent: true, showLeftNavbar: true, showRightNavbar: true}
 
-  comp1 = () => {
+  onToggleShowContent = () => {
     this.setState(prev => ({showContent: !prev.showContent}))
   }
 
-  comp2 = () => {
+  onToggleShowLeftNavbar = () => {
     this.setState(prev => ({showLeftNavbar: !prev.showLeftNavbar}))
   }
 
-  comp3 = () => {
+  onToggleShowRightNavbar = () => {
     this.setState(prev => ({showRightNavbar: !prev.showRightNavbar}))
   }
 
   render() {
     const {showLeftNavbar, showContent, showRightNavbar} = this.state
-
+    console.log(showLeftNavbar, showContent, showRightNavbar)
     return (
       <ConfigurationContext.Provider
         value={{
@@ -28,9 +28,9 @@ class ConfigurationController extends Component {
           showLeftNavbar,
 
           showRightNavbar,
-          onToggleShowContent: this.comp1,
-          onToggleShowLeftNavbar: this.comp2,
-          onToggleShowRightNavbar: this.comp3,
+          onToggleShowContent: this.onToggleShowContent,
+          onToggleShowLeftNavbar: this.onToggleShowLeftNavbar,
+          onToggleShowRightNavbar: this.onToggleShowRightNavbar,
         }}
       >
         <div className="controller">
