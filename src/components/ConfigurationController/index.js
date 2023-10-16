@@ -35,34 +35,34 @@ class ConfigurationController extends Component {
       >
         <div className="controller">
           <h1>Layout</h1>
-          <div className="div">
-            <div>
+          <ul className="div">
+            <li>
               <input
                 id="input1"
                 type="checkbox"
                 onChange={this.onToggleShowContent}
               />
               <label htmlFor="input1">content</label>
-            </div>
+            </li>
 
-            <div>
+            <li>
               <input
                 id="input2"
                 type="checkbox"
                 onChange={this.onToggleShowLeftNavbar}
               />
               <label htmlFor="input2">Left Navbar</label>
-            </div>
+            </li>
 
-            <div>
+            <li>
               <input
                 id="input3"
                 type="checkbox"
                 onChange={this.onToggleShowRightNavbar}
               />
               <label htmlFor="input3">Right Navbar</label>
-            </div>
-          </div>
+            </li>
+          </ul>
         </div>
       </ConfigurationContext.Provider>
     )
