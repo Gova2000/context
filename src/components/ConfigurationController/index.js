@@ -1,72 +1,72 @@
 // Write your code here
-import {Component} from 'react'
+
 import ConfigurationContext from '../../context/ConfigurationContext'
+
 import './index.css'
 
-class ConfigurationController extends Component {
-  state = {showContent: true, showLeftNavbar: true, showRightNavbar: true}
+const ConfigurationController = () => (
+  <ConfigurationContext.Consumer>
+    {value => {
+      const {
+        showContent,
+        showLeftNavbar,
 
-  onToggleShowContent = () => {
-    this.setState(prev => ({showContent: !prev.showContent}))
-  }
+        showRightNavbar,
+        onToggleShowContent,
+        onToggleShowLeftNavbar,
+        onToggleShowRightNavbar,
+      } = value
 
-  onToggleShowLeftNavbar = () => {
-    this.setState(prev => ({showLeftNavbar: !prev.showLeftNavbar}))
-  }
+      const onChange0 = () => {
+        onToggleShowContent()
+      }
 
-  onToggleShowRightNavbar = () => {
-    this.setState(prev => ({showRightNavbar: !prev.showRightNavbar}))
-  }
+      const onChange1 = event => {
+        onToggleShowLeftNavbar(event.target.value)
+      }
 
-  render() {
-    const {showLeftNavbar, showContent, showRightNavbar} = this.state
-    console.log(showLeftNavbar, showContent, showRightNavbar)
-    return (
-      <ConfigurationContext.Provider
-        value={{
-          showContent,
-          showLeftNavbar,
+      const onChange2 = event => {
+        onToggleShowRightNavbar(event.target.value)
+      }
 
-          showRightNavbar,
-          onToggleShowContent: this.onToggleShowContent,
-          onToggleShowLeftNavbar: this.onToggleShowLeftNavbar,
-          onToggleShowRightNavbar: this.onToggleShowRightNavbar,
-        }}
-      >
+      return (
         <div className="controller">
           <h1>Layout</h1>
           <ul className="div">
             <li>
               <input
+                checked={showContent}
                 id="input1"
                 type="checkbox"
-                onChange={this.onToggleShowContent}
+                onChange={onChange0}
               />
               <label htmlFor="input1">content</label>
             </li>
 
             <li>
               <input
+                checked={showLeftNavbar}
                 id="input2"
                 type="checkbox"
-                onChange={this.onToggleShowLeftNavbar}
+                onChange={onChange1}
               />
               <label htmlFor="input2">Left Navbar</label>
             </li>
 
             <li>
               <input
+                checked={showRightNavbar}
                 id="input3"
                 type="checkbox"
-                onChange={this.onToggleShowRightNavbar}
+                onChange={onChange2}
               />
               <label htmlFor="input3">Right Navbar</label>
             </li>
           </ul>
         </div>
-      </ConfigurationContext.Provider>
-    )
-  }
-}
+      )
+    }}
+  </ConfigurationContext.Consumer>
+)
 
 export default ConfigurationController
